@@ -1,4 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const announcementBanner = document.getElementById("announcement-banner");
+  const dismissAnnouncementButton = document.getElementById("dismiss-announcement");
+
+  if (sessionStorage.getItem("announcementDismissed") === "true") {
+    announcementBanner.classList.add("hidden");
+  }
+
+  dismissAnnouncementButton.addEventListener("click", () => {
+    announcementBanner.classList.add("hidden");
+    sessionStorage.setItem("announcementDismissed", "true");
+  });
+
   // DOM elements
   const activitiesList = document.getElementById("activities-list");
   const messageDiv = document.getElementById("message");
